@@ -7,4 +7,12 @@ You may assume that each input would have exactly one solution, and you may not 
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-    	return
+    	# Using hash tables for low time complexity 
+    	table = {}
+    	for i in range(len(nums)):
+    		table[nums[i]] = i
+
+    	for i in range(len(nums)):
+    		if target - nums[i] in table:
+    			if table[target-nums[i]] != i:
+    				return i, table[target-nums[i]]
